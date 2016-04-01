@@ -8,7 +8,7 @@ go:
 
 before_install:
  - sudo apt-get update -qq
- - sudo apt-get install -qq gcc-aarch64-linux-gnu
+ - sudo apt-get install -qq cpp-aarch64-linux-gnu
 
 # Gracefully handle developer forks
 install: |
@@ -23,3 +23,4 @@ install: |
 script:
   - bash -x ./build
   - bash -x ./test
+  - aarch64-linux-gnu-gcc --help

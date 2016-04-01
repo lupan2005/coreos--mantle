@@ -16,5 +16,5 @@ install: |
     fi
 
 script:
-  - ./build
-  - ./test
+  - bash -x ./build
+  - bash -x ./test

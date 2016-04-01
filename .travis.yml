@@ -9,8 +9,8 @@ go:
 before_install:
  - sudo apt-get update -qq
  - sudo apt-get install -y -qq aptitude
- - sudo aptitude install -y -qq gcc-aarch64-linux-gnu
- - sudo apt-get remove -y aptitude
+ - sudo aptitude install -y gcc-aarch64-linux-gnu
+ - sudo apt-get remove -y -qq aptitude
 
 # Gracefully handle developer forks
 install: |

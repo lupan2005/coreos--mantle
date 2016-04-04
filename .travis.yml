@@ -17,8 +17,9 @@ install: |
     fi
 
 before_script:
- - cat /etc/lsb-release
  - sudo apt-get update -qq
+ - sudo apt-get install -y -qq lsb-release
+ - lsb_release -da
  - sudo apt-get install -y -qq gcc-aarch64-linux-gnu
 ## - sudo apt-get install -y -qq aptitude
 ## - ls /usr/bin
@@ -27,12 +28,13 @@ before_script:
 script:
 ##  - bash -x ./build
 ##  - bash -x ./test
- - ls /usr/bin
+ - ls /usr/bin/aa*
  - echo $PATH
  - sudo find "aarch64-linux-gnu-gcc" /usr | grep "aarch64-linux-gnu-gcc"
  - aarch64-linux-gnu-gcc --help
 
 after_script:
  - sudo apt-get remove gcc-aarch64-linux-gnu
+ - sudo apt-get remove lsb-release
 ## - sudo aptitude remove gcc-aarch64-linux-gnu
 ## - sudo apt-get remove -y -qq aptitude

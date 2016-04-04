@@ -17,18 +17,20 @@ install: |
     fi
 
 before_script:
+ - cat /etc/debian_version
+ - cat /etc/issue
  - sudo apt-get update -qq
- - sudo apt-get install -y -qq lsb-release
- - lsb_release -da
  - sudo apt-get install -y -qq gcc-aarch64-linux-gnu
 ## - sudo apt-get install -y -qq aptitude
 ## - ls /usr/bin
 ## - sudo aptitude install -y gcc-aarch64-linux-gnu
+ - sudo apt-get install -y -qq lsb-release
 
 script:
 ##  - bash -x ./build
 ##  - bash -x ./test
  - ls /usr/bin/aa*
+ - lsb_release -da
  - echo $PATH
  - sudo find "aarch64-linux-gnu-gcc" /usr | grep "aarch64-linux-gnu-gcc"
  - aarch64-linux-gnu-gcc --help

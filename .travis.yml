@@ -17,10 +17,9 @@ install: |
     fi
 
 before_script:
- - cat /etc/debian_version
- - cat /etc/issue
+
  - sudo apt-get update -qq
- - sudo apt-get install -y -qq gcc-aarch64-linux-gnu
+## - sudo apt-get install -y -qq gcc-aarch64-linux-gnu
 ## - sudo apt-get install -y -qq aptitude
 ## - ls /usr/bin
 ## - sudo aptitude install -y gcc-aarch64-linux-gnu
@@ -29,6 +28,8 @@ before_script:
 script:
 ##  - bash -x ./build
 ##  - bash -x ./test
+ - cat /etc/debian_version
+ - cat /etc/issue
  - ls /usr/bin/aa*
  - lsb_release -da
  - echo $PATH
@@ -36,7 +37,7 @@ script:
  - aarch64-linux-gnu-gcc --help
 
 after_script:
- - sudo apt-get remove gcc-aarch64-linux-gnu
+## - sudo apt-get remove gcc-aarch64-linux-gnu
  - sudo apt-get remove lsb-release
 ## - sudo aptitude remove gcc-aarch64-linux-gnu
 ## - sudo apt-get remove -y -qq aptitude

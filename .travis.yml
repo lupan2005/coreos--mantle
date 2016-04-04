@@ -21,12 +21,15 @@ before_script:
  - sudo apt-get update -qq
 ## - sudo apt-get install -y -qq gcc-aarch64-linux-gnu
  - sudo apt-get install -y -qq aptitude
+ - ls /usr/bin
  - sudo aptitude install -y gcc-aarch64-linux-gnu
 
 script:
 ##  - bash -x ./build
 ##  - bash -x ./test
+ - ls /usr/bin
  - echo $PATH
+ - sudo find "aarch64-linux-gnu-gcc" /usr | grep "aarch64-linux-gnu-gcc"
  - aarch64-linux-gnu-gcc --help
 
 after_script:

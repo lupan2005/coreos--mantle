@@ -19,10 +19,10 @@ install: |
 before_script:
  - cat /etc/lsb-release
  - sudo apt-get update -qq
-## - sudo apt-get install -y -qq gcc-aarch64-linux-gnu
- - sudo apt-get install -y -qq aptitude
- - ls /usr/bin
- - sudo aptitude install -y gcc-aarch64-linux-gnu
+ - sudo apt-get install -y -qq gcc-aarch64-linux-gnu
+## - sudo apt-get install -y -qq aptitude
+## - ls /usr/bin
+## - sudo aptitude install -y gcc-aarch64-linux-gnu
 
 script:
 ##  - bash -x ./build
@@ -33,5 +33,6 @@ script:
  - aarch64-linux-gnu-gcc --help
 
 after_script:
- - sudo aptitude remove gcc-aarch64-linux-gnu
- - sudo apt-get remove -y -qq aptitude
+ - sudo apt-get remove gcc-aarch64-linux-gnu
+## - sudo aptitude remove gcc-aarch64-linux-gnu
+## - sudo apt-get remove -y -qq aptitude

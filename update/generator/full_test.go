@@ -112,6 +112,9 @@ func checkFullScan(t *testing.T, source []byte) ([]*metadata.InstallOperation, [
 	}
 
 	if err := scanner.Scan(); err != nil {
+		if err.Error() == "bzip2 not found" {
+			t.Skip("skipping test, no bzip2 installed.")
+		}
 		t.Fatalf("unexpected error %v", err)
 	}
 
@@ -165,6 +168,9 @@ func checkFullProc(t *testing.T, source, sourceHash []byte) *Procedure {
 	if system.IsOpNotSupported(err) {
 		t.Skip("O_TMPFILE not supported")
 	} else if err != nil {
+		if err.Error() == "bzip2 not found" {
+			t.Skip("skipping test, no bzip2 installed.")
+		}
 		t.Fatal(err)
 	}
 

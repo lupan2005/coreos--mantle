@@ -19,6 +19,7 @@ import (
 	"io"
 	"os"
 	"os/exec"
+	"errors"
 )
 
 type bzip2Writer struct {
@@ -31,6 +32,10 @@ func NewBzip2Writer(w io.Writer) (io.WriteCloser, error) {
 	zipper, err := exec.LookPath("lbzip2")
 	if err != nil {
 		zipper = "bzip2"
+		_, err := exec.LookPath(zipper)
+		if err != nil {
+			return nil, errors.New("bzip2 not found")
+		}
 	}
 
 	cmd := exec.Command(zipper, "-c")

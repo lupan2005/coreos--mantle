@@ -32,6 +32,9 @@ func bunzip2(t *testing.T, z []byte) []byte {
 func TestBzip2(t *testing.T) {
 	smallOnes, err := Bzip2(testOnes)
 	if err != nil {
+		if err.Error() == "bzip2 not found" {
+			t.Skip("skipping test, no bzip2 installed.")
+		}
 		t.Fatal(err)
 	}
 
